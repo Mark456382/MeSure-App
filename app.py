@@ -28,18 +28,41 @@ class App(QMainWindow):
         health_dairy.setStyleSheet("""
                                     background-image: url(WorkImg/Health Dairy.jpg);
                                     border: none;
-                                    border-radius: 16px;""")
+                                    border-radius: 16px;
+                                    """)
         
         mpg_text = QLabel("My PocketGP", self)
+        mpg_text.setFont(QFont('Poppins', 12))
         hd_text= QLabel("Health Dairy", self)
-        mpg_text.move(70, 370)
-        hd_text.move(245, 370)
+        hd_text.setFont(QFont('Poppins', 12))
+        mpg_text.resize(130, 40)
+        hd_text.resize(130, 40)
+        mpg_text.move(60, 365)
+        hd_text.move(230, 365)
 
-    def my_pocket_GP(self):
-        print("My Pocket GP")
+        settings = QPushButton("", self)
+        settings.setGeometry(10, 10, 50, 50)
+        settings.clicked.connect(self.settings)
+        settings.setStyleSheet("""
+                                background-image: url(/home/mark/Документы/GitHub/ReactNodeApp/WorkImg/settings.png);
+                                border: none;
+                                """)
+        
+        profile = QPushButton('', self)
+        profile.setGeometry(330, 10, 50, 50)
+        profile.clicked.connect(self.profile)
+        profile.setStyleSheet("""
+                                background-image: url(/home/mark/Документы/GitHub/ReactNodeApp/WorkImg/profile.png);
+                                border: none;
+                                """)
 
-    def health_dairy(self):
-        print("Health Dairy")
+    def profile(self): print('Profile')
+
+    def settings(self): print('Settings')
+
+    def my_pocket_GP(self): print("My Pocket GP")
+
+    def health_dairy(self): print("Health Dairy")
 
 
 if __name__ == '__main__':
