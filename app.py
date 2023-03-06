@@ -9,10 +9,11 @@ class App(QMainWindow):
         self.setFixedSize(390, 660)
         self.setWindowTitle("MeSureApp")
         self.setStyleSheet("""background-color: #4169C1;""")
+        self.win = None
         self.main()
 
     def main(self):
-
+        widget = Q
         my_pocket_gp = QPushButton("", self)
         my_pocket_gp.setGeometry(50, 240, 120, 120)
         my_pocket_gp.clicked.connect(self.my_pocket_GP)
@@ -30,10 +31,10 @@ class App(QMainWindow):
                                     border: none;
                                     border-radius: 16px;
                                     """)
-        
+
         mpg_text = QLabel("My PocketGP", self)
         mpg_text.setFont(QFont('Poppins', 12))
-        hd_text= QLabel("Health Dairy", self)
+        hd_text = QLabel("Health Dairy", self)
         hd_text.setFont(QFont('Poppins', 12))
         mpg_text.resize(130, 40)
         hd_text.resize(130, 40)
@@ -42,31 +43,44 @@ class App(QMainWindow):
 
         settings = QPushButton("", self)
         settings.setGeometry(10, 10, 50, 50)
-        settings.clicked.connect(self.settings)
+        settings.clicked.connect(lambda: settings.hide)
         settings.setStyleSheet("""
-                                background-image: url(/home/mark/Документы/GitHub/ReactNodeApp/WorkImg/settings.png);
+                                background-image: url(WorkImg/settings.png);
                                 border: none;
                                 """)
-        
+
         profile = QPushButton('', self)
         profile.setGeometry(330, 10, 50, 50)
         profile.clicked.connect(self.profile)
         profile.setStyleSheet("""
-                                background-image: url(/home/mark/Документы/GitHub/ReactNodeApp/WorkImg/profile.png);
+                                background-image: url(WorkImg/profile.png);
                                 border: none;
                                 """)
 
-    def profile(self): print('Profile')
 
-    def settings(self): print('Settings')
+    def profile(self):
+        self.hide()
+        self.win = Profile()
+        self.win.show()
 
-    def my_pocket_GP(self): print("My Pocket GP")
+    def settings(self): ...
 
-    def health_dairy(self): print("Health Dairy")
+    def my_pocket_gp(self): ...
+
+    def health_dairy(self): ...
+
+
+class Profile(App):
+    def __init__(self):
+        super(App).__init__()
+
+    def build(self):
+        txt = QLabel('label Profile', self)
+        txt.move(10, 10)
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     win = App()
-    win.show()  
+    win.show()
     sys.exit(app.exec())
