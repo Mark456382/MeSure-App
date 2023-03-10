@@ -15,6 +15,7 @@
 MDScreen:
     MDNavigationLayout:
         MDScreenManager:
+            id: main_screen
             MDScreen:
                 MDTopAppBar:
                     title: "MeSure MVP"
@@ -22,10 +23,11 @@ MDScreen:
                     pos_hint: {"top": 1}
                     md_bg_color: "#18a7b5"
                     specific_text_color: "#4a4939"
-                    left_action_items: [["menu", lambda x: NavigateMainMenu.set_state("open")]]
+                    left_action_items: [["menu", lambda x: navigate_main_menu.set_state("open")]]
+            
 
         MDNavigationDrawer:
-            id: NavigateMainMenu
+            id: navigate_main_menu
             radius: (0, 16, 16, 0)
             MDNavigationDrawerMenu:
                 MDNavigationDrawerHeader:
