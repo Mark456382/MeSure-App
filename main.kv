@@ -1,3 +1,17 @@
+<DrawerClickableItem@MDNavigationDrawerItem>
+    focus_color: "#e7e4c0"
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    ripple_color: "#c5bdd2"
+    selected_color: "#0c6c4d"
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    focus_behavior: False
+    selected_color: "#4a4939"
+    _no_ripple_effect: True
+
 MDScreen:
     MDNavigationLayout:
         MDScreenManager:
@@ -21,3 +35,13 @@ MDScreen:
                     source: "icon.png"
                     spacing: "10dp"
                     padding: "15dp", 0, 0, "56dp"
+
+                MDNavigationDrawerDivider:
+
+                DrawerClickableItem:
+                    icon: "bookmark"
+                    text: "Main"
+
+                DrawerClickableItem:
+                    icon: "saw-blade"
+                    text: "Settings"
