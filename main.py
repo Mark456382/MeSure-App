@@ -28,7 +28,8 @@ class MeSureMVPApp(MDApp):
         root: MDScreen = Builder.load_file(MAIN_UI_FILE)
 
         if DEBUG: 
-            console.print(root.ids) # Если у объекта в файле main.kv прописан id, то они будут в root.ids
+            console.print(root.ids)
+            # Если у объекта в файле main.kv прописан id, то они будут в root.ids
 
         return root
     
