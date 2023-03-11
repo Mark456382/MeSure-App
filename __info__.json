@@ -1,0 +1,19 @@
+{
+    "user_id": {
+        "first name": "",
+        "last name": "",
+        "email": "",
+        "phone": "",
+        "health": {
+            "height": "",
+            "weight": "",
+            "age": "",
+            "state": "",
+            "category2sleep": "",
+            "oncology": "",
+            "smoke": ""
+        },
+        "steps" : "",
+        "personal records" : ""
+    }
+}
