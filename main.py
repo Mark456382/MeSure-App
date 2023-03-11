@@ -12,11 +12,12 @@ from settings import DEBUG, THEME_STYLE, PRIMARY_PALETTE, MAIN_UI_FILE
 console = Console()
 
 # > Functions
-def lsattr(obj: object) -> Dict[str, Any]:
+def lsattr(obj: object, with_hidden: bool=False) -> Dict[str, Any]:
     """Return attributes of object."""
     d = {}
     for i in dir(obj):
-        d[i] = getattr(obj, i)
+        if (not i.startswith("_")) or with_hidden:
+            d[i] = getattr(obj, i)
     return d
 
 # > Main
@@ -36,6 +37,7 @@ class MeSureMVPApp(MDApp):
     def on_start(self):
         if DEBUG:
             self.fps_monitor_start()
+            console.print(lsattr(self.root)) # Здесь после старта экрана, можно найти self.root.ids
 
 # > Start
 if __name__ == "__main__":
